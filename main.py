@@ -54,9 +54,25 @@ def admin_login():
 
 
 # This allows the Dynamic Routing Possible
-@app.route('/admin/logged/<id>',methods=["POST","GET"])
+@app.route('/admin/logged/<id>', methods=["POST", "GET"])
 def admin_logged_user(id):
-    return "<h2>User Logged in</h2>"
+    if request.method == "POST":
+        value = request.form['options']
+        if value == 'createstudents':
+            return redirect('/admin/createstudents')
+        elif value == 'createteachers':
+            return redirect('/admin/createteachers')
+    return render_template('admin_loggedin.html', id=id)
+
+
+
+@app.route('/admin/createstudents', methods=["GET", "POST"])
+def admin_createstudents():
+    return "<h2>Creating Students</h2>"
+
+@app.route('/admin/createteachers',methods=["GET","POST"])
+def admin_createteachers():
+    return "<h2>Creating Teachers</h2>"
 
 if __name__ == '__main__':
     app.run(debug=True)
