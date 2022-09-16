@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Loggedin</title>
+</head>
+<body>
+    <form action="/admin/logged/{{ id }}" method="post">
+        <input type="radio" name="options" id="createstudents" value="createstudents">createstudents<br>
+        <input type="radio" name="options" id="createteachers" value="createteachers">createteachers<br>
+        <button type="submit">Submit</button>
+        <button type="reset">reset</button>
+    </form>
+    <h2> {{ id }}</h2>
+</body>
+</html>
